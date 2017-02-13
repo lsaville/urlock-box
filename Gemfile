@@ -37,4 +37,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'poltergeist'
+  gem 'faker'
 end
