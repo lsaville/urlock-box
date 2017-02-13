@@ -1,6 +1,7 @@
 <h1>Create Account</h1>
 
 <%= form_for @user do |f| %>
+  <%= render partial: "shared/errors", locals: { target: @user } %>
   <%= f.label :email %>
   <%= f.text_field :email %>
 
