@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       resources :links, only: [:update]
     end
   end
+
+  resources :users, only: [:new]
 end
