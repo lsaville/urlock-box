@@ -10,7 +10,7 @@ describe 'user visits links index' do
     within('form') do
       expect(page).to have_content("Title")
       expect(page).to have_content("Url")
-      expect(page).to have_content("Submit Link")
+      expect(page).to have_button("Submit Link")
     end
   end
 end
