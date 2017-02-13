@@ -12,7 +12,7 @@ class LinksController < ApplicationController
       flash[:success] = "Successfully created link!"
       redirect_to links_path
     else
-      render :new
+      render :index
     end
   end
 
