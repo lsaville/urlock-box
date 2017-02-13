@@ -12,9 +12,9 @@
 <body>
 <div class="container">
   <% if logged_in? %>
-  <%= link_to "Logout" %>
+  <%= link_to "Logout"%>
   <% else %>
-  <%= link_to "Login" %>
+  <%= link_to "Login", login_path %>
   <% end %>
   <% flash.each do |message_type, message| %>
     <div><%= message %></div>
