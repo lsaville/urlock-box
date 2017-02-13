@@ -1,4 +1,8 @@
-<%= form_for @link do |f| %>
+<div class="container">
+
+  <h1>Links</h1>
+
+  <%= form_for @link do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -6,4 +10,26 @@
   <%= f.text_field :url %>
 
   <%= f.submit "Submit Link" %>
-<% end %>
+  <% end %>
+
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if current_user.links %>
+        <% current_user.links.each do |link| %>
+          <tr class='link'>
+            <td> <%= link.title %> </td>
+            <td> <%= link.url %> </td>
+            <td class='read-status'> <%= link_to "Mark as Read" %> </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
