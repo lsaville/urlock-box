@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h1>Links</h1>
+
+  <%= form_for @link do |f| %>
+    <%= render partial: "shared/errors", locals: { target: @link } %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "Submit Link" %>
+  <% end %>
+
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if current_user.links %>
+        <% current_user.links.each do |link| %>
+          <tr class='link' data-link-id=<%= link.id %>>
+            <td> <%= link.title %> </td>
+            <td> <%= link.url %> </td>
+            <td class='read-status'> <a href='#' class="mark-as-read" >Mark as Read</a> </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
