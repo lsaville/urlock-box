@@ -8,6 +8,7 @@ describe 'visitor goes to new_user_path' do
       fill_in "Email", with: 'bub@example.com'
       fill_in "Password", with: 'pass'
       fill_in "Password confirmation", with: 'pass'
+      click_on "Create Account"
 
       expect(page).to have_content("Successfully created account!")
       expect(page).to have_content("Logout")
