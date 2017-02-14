@@ -7,6 +7,7 @@ function markAsRead(e) {
 
   var $link = $(this).parents('.link');
   var linkId = $link.data('link-id');
+  var linkUrl = $link.data('link-url');
 
   $.ajax({
     type: "PATCH",
@@ -14,6 +15,12 @@ function markAsRead(e) {
     data: { read: true },
   }).then(updateLinkStatus)
     .fail(displayFailure);
+
+  $.ajax({
+    type: "POST",
+    url: 'https://young-beyond-19933.herokuapp.com/',
+    data: {read: linkUrl},
+  })
 }
 
 function updateLinkStatus(link) {
