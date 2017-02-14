@@ -19,15 +19,21 @@
         <th>Title</th>
         <th>Url</th>
         <th>Read</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% if current_user.links %>
         <% current_user.links.each do |link| %>
-          <tr class='link' data-link-id=<%= link.id %>>
+          <tr class='link' data-link-id=<%= link.id %> data-link-url=<%= link.url %> >
             <td> <%= link.title %> </td>
             <td> <%= link.url %> </td>
-            <td class='read-status'> <a href='#' class="mark-as-read" >Mark as Read</a> </td>
+            <td class='read-status'><%= link.read %></td>
+            <td>
+              <% if link.read == false %>
+              <a href='#' class="mark-as-read" >Mark as Read</a>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>
