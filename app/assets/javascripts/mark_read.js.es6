@@ -18,7 +18,7 @@ function markAsRead(e) {
 
   $.ajax({
     type: "POST",
-    url: 'https://young-beyond-19933.herokuapp.com/',
+    url: 'https://young-beyond-19933.herokuapp.com/api/v1/reads',
     data: {read: linkUrl},
   })
 }
